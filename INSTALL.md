@@ -47,9 +47,51 @@ cd pi-foundry
 
 #### 1. Generar secret HMAC
 
+El secret HMAC-SHA256 es la clave compartida que autentica toda comunicación entre PI, el relay y el módulo de Foundry. **Los tres componentes deben usar el mismo secret.**
+
 ```bash
+# Generar automáticamente (recomendado)
 ./scripts/generate-secret.sh
+# → Crea .secret con 32 bytes hex aleatorios (permisos 600)
+
+# O generar manualmente
+openssl rand -hex 32 > .secret
+chmod 600 .secret
 ```
+
+El archivo `.secret` contiene una línea como:
+```
+a3f7b2c8e1d4f6a9b3c5e8d1f4a7b2c9e6d3f1a8b5c7e2d4f9a1b3c6e8d5f2a7
+```
+
+**¿Cómo se usa el secret en cada componente?**
+
+| Componente | Cómo lee el secret |
+|---|---|
+| **PI Extension** | Lee `/root/pi-foundry/.secret` automáticamente, o usa la env var `PI_FOUNDRY_SECRET` |
+| **Relay** | Lee `/root/pi-foundry/.secret` al arrancar (systemd service) |
+| **Foundry Module** | Se configura en Foundry → Settings → PI Bridge → "Shared Secret" (ver paso 3 abajo) |
+
+**Paso 3: Configurar el secret en Foundry**
+
+Después de activar el módulo `pi-bridge` en Foundry:
+
+1. Ve a **Foundry → Settings → Configure Settings → PI Bridge**
+2. Pega el contenido de `.secret` en el campo **"Shared Secret"**
+3. Configura **"Relay URL"** = `ws://127.0.0.1:7401/gm` (default)
+4. Guarda y recarga la página (F5)
+
+Alternativamente, puedes setear el secret via variable de entorno:
+
+```bash
+# Para PI (en ~/.pi/agent/settings.json o env)
+export PI_FOUNDRY_SECRET="a3f7b2c8e1d4f6a9..."
+
+# Para el relay (en el systemd service o env)
+export PI_BRIDGE_SECRET="a3f7b2c8e1d4f6a9..."
+```
+
+> ⚠️ **Importante**: Si el secret no coincide en los tres componentes, la autenticación HMAC fallará y los comandos se rechazarán con error 401. Verifica con `foundry_ping`.
 
 #### 2. Instalar dependencias
 
