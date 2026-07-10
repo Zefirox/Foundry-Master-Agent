@@ -38,9 +38,10 @@ Instala estos módulos en Foundry antes de la instalación:
 ### Opción A: Instalador automático
 
 ```bash
-git clone https://github.com/tu-usuario/pi-foundry.git
+git clone https://github.com/Zefirox/Foundry-Master-Agent.git
+pi-foundry
 cd pi-foundry
-./scripts/install.sh --foundry-dir /root/foundryuserdata --world astralis-legacy
+./scripts/install.sh --foundry-dir /path/to/foundryuserdata --world my-world
 ```
 
 ### Opción B: Instalación manual
@@ -68,8 +69,8 @@ a3f7b2c8e1d4f6a9b3c5e8d1f4a7b2c9e6d3f1a8b5c7e2d4f9a1b3c6e8d5f2a7
 
 | Componente | Cómo lee el secret |
 |---|---|
-| **PI Extension** | Lee `/root/pi-foundry/.secret` automáticamente, o usa la env var `PI_FOUNDRY_SECRET` |
-| **Relay** | Lee `/root/pi-foundry/.secret` al arrancar (systemd service) |
+| **PI Extension** | Lee `<pi-foundry-dir>/.secret` automáticamente, o usa la env var `PI_FOUNDRY_SECRET` |
+| **Relay** | Lee `<pi-foundry-dir>/.secret` al arrancar (systemd service) |
 | **Foundry Module** | Se configura en Foundry → Settings → PI Bridge → "Shared Secret" (ver paso 3 abajo) |
 
 **Paso 3: Configurar el secret en Foundry**

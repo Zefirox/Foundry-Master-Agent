@@ -2,8 +2,8 @@
 # install.sh — Instalador un solo comando para PI-Foundry
 #
 # Uso:
-#   ./install.sh --foundry-dir /root/foundryuserdata --world astralis-legacy
-#   ./install.sh --foundry-dir /root/foundryuserdata --world my-world --force
+#   ./install.sh --foundry-dir /path/to/foundryuserdata --world my-world
+#   ./install.sh --foundry-dir /path/to/foundryuserdata --world my-world --force
 #
 # Pasos:
 # 1. Verificar dependencias del sistema

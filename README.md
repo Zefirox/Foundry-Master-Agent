@@ -15,7 +15,8 @@ Arquitectura que permite a un agente de IA (PI) interactuar nativamente con Foun
 
 ```bash
 # 1. Clonar
-git clone https://github.com/tu-usuario/pi-foundry.git
+git clone https://github.com/Zefirox/Foundry-Master-Agent.git
+pi-foundry
 cd pi-foundry
 
 # 2. Instalar

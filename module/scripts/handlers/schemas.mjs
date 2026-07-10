@@ -187,6 +187,25 @@ export const SCHEMAS = {
     },
   },
 
+  // ─── Play animation via Sequencer ────────────────────────
+  play_animation: {
+    type: "object",
+    required: ["tokenId", "file"],
+    properties: {
+      tokenId: { type: "string" },
+      file: { type: "string" },
+      scale: { type: "number" },
+      tint: { type: "string" },
+      persist: { type: "boolean" },
+      belowTokens: { type: "boolean" },
+      fadeIn: { type: "number" },
+      fadeOut: { type: "number" },
+      stretchToTokenId: { type: "string" },
+      delay: { type: "number" },
+      name: { type: "string" },
+    },
+  },
+
   // ─── Unsafe eval (escape hatch, deshabilitado por defecto) ───
   "unsafe.eval": {
     type: "object",

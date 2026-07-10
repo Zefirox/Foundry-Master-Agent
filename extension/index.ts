@@ -93,6 +93,7 @@ const COMMAND_NAMES = [
   "sync_modules",
   "analyze_module",
   "index_knowledge",
+  "play_animation",
 ] as const;
 
 export default function foundryExtension(pi: ExtensionAPI) {
@@ -116,6 +117,7 @@ Comandos disponibles:
 - sync_modules: escanea módulos activos y compara con conocimiento conocido. args: {}. Devuelve { known, unknown, versionMismatches }
 - analyze_module: extrae API surface de un módulo. args: { moduleId: string }. Devuelve globals, hooks, classes, methods, readme
 - index_knowledge: persiste conocimiento generado en el RAG. args: { module: string, content: string, title? }
+- play_animation: reproduce animación JB2A via Sequencer. args: { tokenId, file, scale?, tint?, persist?, belowTokens?, fadeIn?, fadeOut?, stretchToTokenId?, delay?, name? }
 
 SIEMPRE consulta foundry_search_docs antes de emitir comandos para usar la API correcta de la versión de Foundry.`,
     promptSnippet: "Execute structured commands on FoundryVTT (create actors, place tokens, etc.)",

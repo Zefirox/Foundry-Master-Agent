@@ -5,7 +5,7 @@
   "sslCert": null,
   "sslKey": null,
   "awsConfig": null,
-  "dataPath": "/root/foundryuserdata",
+  "dataPath": "/path/to/foundryuserdata",
   "passwordSalt": null,
   "proxyPort": 30000,
   "proxySSL": true,

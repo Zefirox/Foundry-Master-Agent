@@ -18,6 +18,7 @@ import { plutoniumImport } from "./plutonium-import.mjs";
 import { syncModules } from "./sync-modules.mjs";
 import { analyzeModule } from "./analyze-module.mjs";
 import { indexKnowledge } from "./index-knowledge.mjs";
+import { playAnimation } from "./play-animation.mjs";
 
 export const handlers = {
   ping,
@@ -33,5 +34,6 @@ export const handlers = {
   sync_modules: syncModules,
   analyze_module: analyzeModule,
   index_knowledge: indexKnowledge,
+  play_animation: playAnimation,
   "unsafe.eval": unsafeEval,
 };
