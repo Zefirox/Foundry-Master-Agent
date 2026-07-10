@@ -1,0 +1,16 @@
+# Caddyfile example for PI-Foundry
+# 
+# This config exposes FoundryVTT on a single port (30000) via Caddy reverse proxy.
+# The /pi-bridge/* path is routed to the relay, everything else to Foundry.
+
+:30000 {
+	# PI Bridge relay (HTTP API + WebSocket)
+	handle_path /pi-bridge/* {
+		reverse_proxy 127.0.0.1:7401
+	}
+
+	# Everything else → FoundryVTT
+	handle {
+		reverse_proxy 127.0.0.1:30001
+	}
+}

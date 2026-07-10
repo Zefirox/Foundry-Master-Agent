@@ -1,0 +1,28 @@
+[Unit]
+Description=PI Bridge Relay — FoundryVTT ↔ PI agent
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/root/pi-foundry/relay
+Environment=PI_BRIDGE_PORT=7401
+Environment=PI_BRIDGE_SECRET_FILE=/root/pi-foundry/.secret
+Environment=PI_BRIDGE_AUDIT_LOG=/root/pi-foundry/relay/audit.jsonl
+ExecStart=/root/.nvm/versions/node/v24.14.1/bin/node server.mjs
+Restart=on-failure
+RestartSec=3
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=pi-bridge-relay
+
+# Hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/root/pi-foundry
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+LimitNOFILE=64
+
+[Install]
+WantedBy=multi-user.target

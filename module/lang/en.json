@@ -1,0 +1,9 @@
+{
+  "PI-bridge": {
+    "settings": {
+      "relayUrl": "WebSocket URL del relay local (ws://127.0.0.1:7401/gm)",
+      "authToken": "Token de autenticación (debe coincidir con el secret del relay)",
+      "allowUnsafe": "Permitir comandos unsafe.eval (peligroso, solo para desarrollo)"
+    }
+  }
+}

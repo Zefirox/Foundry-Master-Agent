@@ -1,0 +1,24 @@
+{
+  "id": "pi-bridge",
+  "title": "PI Bridge — Agente IA ↔ FoundryVTT",
+  "description": "Puente de ejecución validada para comandos estructurados desde el agente PI. Recibe comandos via WebSocket desde un relay local y los ejecuta en el contexto del GM.",
+  "version": "0.1.0",
+  "compatibility": {
+    "minimum": "12",
+    "verified": "13",
+    "maximum": "13"
+  },
+  "authors": [{ "name": "pi-foundry" }],
+  "esmodules": ["scripts/pi-bridge.mjs"],
+  "languages": [{ "lang": "en", "name": "English", "path": "lang/en.json" }],
+  "socket": true,
+  "url": "",
+  "manifest": "",
+  "download": "",
+  "readme": "",
+  "bugs": "",
+  "changelog": "",
+  "flags": {
+    "hotReload": { "extensions": ["js", "json", "mjs"], "paths": ["scripts", "lang"] }
+  }
+}

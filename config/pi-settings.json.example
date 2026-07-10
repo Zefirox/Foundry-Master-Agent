@@ -1,0 +1,6 @@
+{
+  "model": "litellm-proxy",
+  "provider": "openai-compatible",
+  "baseUrl": "http://10.0.0.69:4000/v1",
+  "apiKey": "sk-litellm-proxy"
+}

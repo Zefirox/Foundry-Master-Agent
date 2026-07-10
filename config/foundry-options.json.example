@@ -1,0 +1,22 @@
+{
+  "port": 30001,
+  "hostname": "0.0.0.0",
+  "routePrefix": null,
+  "sslCert": null,
+  "sslKey": null,
+  "awsConfig": null,
+  "dataPath": "/root/foundryuserdata",
+  "passwordSalt": null,
+  "proxyPort": 30000,
+  "proxySSL": true,
+  "upnp": false,
+  "world": null,
+  "minifyStaticFiles": true,
+  "hotReload": true,
+  "language": "en",
+  "updateChannel": "stable",
+  "backups": {
+    "active": true,
+    "schedule": "weekly"
+  }
+}
